@@ -6,8 +6,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
-
 function createData(code, name, unit, type, supplier, manufacturer) {
   return { code, name, unit, type, supplier, manufacturer };
 }
@@ -36,7 +34,6 @@ const TableCRUD = () => {
               <TableCell align="center">Rodzaj</TableCell>
               <TableCell align="center">Dostawca</TableCell>
               <TableCell align="center">Producent</TableCell>
-              <TableCell align="center">Funkcje</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -53,18 +50,6 @@ const TableCRUD = () => {
                 <TableCell align="center">{row.type}</TableCell>
                 <TableCell align="center">{row.supplier}</TableCell>
                 <TableCell align="center">{row.manufacturer}</TableCell>
-                <TableCell align="center">
-                  <Button variant="contained" className={styles.button}>
-                    +
-                  </Button>
-                  <Button variant="contained" className={styles.button}>
-                    -
-                  </Button>
-                  <Button variant="contained" className={styles.button}>
-                    Edytuj
-                  </Button>
-                  <Button variant="contained">Uaktualnij</Button>
-                </TableCell>
               </TableRow>
             ))}
           </TableBody>
