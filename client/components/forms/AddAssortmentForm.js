@@ -1,6 +1,19 @@
 import styles from "./AddAssortmentForm.module.css";
+import { useState, useEffect } from "react";
+import Axios from "axios";
 
 export const AddAssortmentForm = () => {
+  const [name, setName] = useState("");
+
+  const submitAssortment = (e) => {
+    e.preventDefault();
+    Axios.post("http://localhost:3001/api/insert", {
+      name: name,
+    }).then(() => {
+      alert("successful insert");
+    });
+  };
+
   return (
     <>
       <form className={styles.form}>
@@ -26,7 +39,14 @@ export const AddAssortmentForm = () => {
               </select>
             </div>
             <div className={styles.inputRow2}>
-              <input type="text" id="name" name="name" />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
             </div>
             <div className={styles.inputRow3}>
               <textarea name="description" rows="8" cols="30"></textarea>
@@ -46,7 +66,7 @@ export const AddAssortmentForm = () => {
         </div>
       </form>
       <div className={styles.buttonsContainer}>
-        <button>Dodaj</button>
+        <button onClick={submitAssortment}>Dodaj</button>
         <button>Anuluj</button>
       </div>
     </>
